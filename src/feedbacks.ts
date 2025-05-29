@@ -24,7 +24,6 @@ export function UpdateFeedbacks(self: ModuleInstance): void {
 		presentationModeIndicator: {
 			name: 'Presentation Mode Indicator',
 			type: 'boolean',
-			label: 'Show Presentation Mode',
 			defaultStyle: {
 				bgcolor: combineRgb(200, 0, 0),
 				color: combineRgb(0, 0, 0),

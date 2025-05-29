@@ -2,12 +2,20 @@ import { type CompanionPresetDefinition, combineRgb } from '@companion-module/ba
 import type { ModuleInstance } from './main.js'
 
 export function UpdatePresets(_instance: ModuleInstance): { [key: string]: CompanionPresetDefinition } {
+	_instance.log('debug', 'PDFOSC: Creating presets...')
 	const presets: { [key: string]: CompanionPresetDefinition } = {
 		pageActionHeader: {
 			category: 'PDF control and feedback',
 			name: 'Page control',
-			type: 'text',
-			text: 'Move through document',
+			type: 'button',
+			style: {
+				text: 'Move through document',
+				size: 'auto',
+				color: combineRgb(255, 255, 255),
+				bgcolor: combineRgb(0, 0, 0),
+			},
+			steps: [],
+			feedbacks: [],
 		},
 		prev: {
 			type: 'button',
@@ -59,7 +67,7 @@ export function UpdatePresets(_instance: ModuleInstance): { [key: string]: Compa
 					feedbackId: 'showState',
 					options: {},
 					style: {
-						bgcolor: combineRgb(0, 200, 0), // Verde quando attivato dal test
+						bgcolor: combineRgb(0, 200, 0),
 					},
 				},
 			],
@@ -104,7 +112,7 @@ export function UpdatePresets(_instance: ModuleInstance): { [key: string]: Compa
 				{
 					down: [
 						{
-							actionId: 'togglePresentation',
+							actionId: 'togglePresentationMode',
 							options: {},
 						},
 					],
@@ -124,5 +132,7 @@ export function UpdatePresets(_instance: ModuleInstance): { [key: string]: Compa
 		},
 	}
 
+	_instance.log('debug', `PDFOSC: Created ${Object.keys(presets).length} presets`)
+	_instance.log('debug', 'PDFOSC: Preset structure: ' + JSON.stringify(presets, null, 2))
 	return presets
 }

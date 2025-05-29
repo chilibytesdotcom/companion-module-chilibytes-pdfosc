@@ -15,30 +15,33 @@ export class ModuleInstance extends InstanceBase<ModuleConfig> {
 
 	constructor(internal: unknown) {
 		super(internal)
+		this.log('debug', 'PDFOSC: Constructor called')
 	}
 
+	/**
+	 * @description triggered on instance being enabled
+	 */
 	async init(config: ModuleConfig): Promise<void> {
 		this.config = config
 
-		// Create OSC listener instance
 		this.oscListener = new OSCListener(this)
 		await this.oscListener.connect()
 
-		// Create OSC client instance
 		this.oscClient = new Client(this.config.host, this.config.port)
 
 		this.updateStatus(InstanceStatus.Ok)
-
-		this.updateActions() // export actions
-		this.updateFeedbacks() // export feedbacks
-		this.updateVariableDefinitions() // export variable definitions
-		this.updatePresets() // export presets
+		this.updateActions()
+		this.updateFeedbacks()
+		this.updateVariableDefinitions()
+		this.updatePresets()
+		this.log('debug', 'PDFOSC: Module initialization complete')
 	}
 
-	// When module gets deleted
+	/**
+	 * @description triggered on instance being disabled/removed
+	 */
 	async destroy(): Promise<void> {
-		this.log('debug', 'destroy')
-
+		this.log('debug', 'PDFOSC: Destroying module')
 		if (this.oscListener) {
 			await this.oscListener.close()
 			this.oscListener = undefined
@@ -50,9 +53,13 @@ export class ModuleInstance extends InstanceBase<ModuleConfig> {
 		}
 	}
 
+	/**
+	 * @description triggered when config is updated
+	 */
 	async configUpdated(config: ModuleConfig): Promise<void> {
+		this.log('debug', 'PDFOSC: Config updated')
 		this.config = config
-		this.log('debug', 'Sending OSC actions to ' + this.config.host + ':' + this.config.port)
+		this.log('debug', 'PDFOSC: Sending OSC actions to ' + this.config.host + ':' + this.config.port)
 		this.updateStatus(InstanceStatus.Connecting, 'Reconnecting...')
 
 		// Recreate OSC listener with new config
@@ -77,19 +84,25 @@ export class ModuleInstance extends InstanceBase<ModuleConfig> {
 	}
 
 	updateActions(): void {
+		this.log('debug', 'PDFOSC: Setting action definitions')
 		UpdateActions(this)
 	}
 
 	updateFeedbacks(): void {
+		this.log('debug', 'PDFOSC: Setting feedback definitions')
 		UpdateFeedbacks(this)
 	}
 
 	updateVariableDefinitions(): void {
+		this.log('debug', 'PDFOSC: Setting variable definitions')
 		UpdateVariableDefinitions(this)
 	}
 
 	updatePresets(): void {
-		this.setPresetDefinitions(UpdatePresets(this))
+		this.log('debug', 'PDFOSC: Setting preset definitions')
+		const presets = UpdatePresets(this)
+		this.log('debug', `PDFOSC: Registering ${Object.keys(presets).length} presets`)
+		this.setPresetDefinitions(presets)
 	}
 }
 

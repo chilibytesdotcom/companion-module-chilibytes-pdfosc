@@ -56,6 +56,8 @@ class OSCListener {
 			const [address, ...args] = message
 			if (typeof address !== 'string') return
 
+			this.instance.log('debug', `Received OSC message: ${address} with args: ${JSON.stringify(args)}`)
+
 			switch (address) {
 				case '/pdfosc/current': {
 					const rawValue = args[0]
