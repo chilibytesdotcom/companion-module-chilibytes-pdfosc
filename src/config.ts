@@ -3,25 +3,70 @@ import { Regex, type SomeCompanionConfigField } from '@companion-module/base'
 export interface ModuleConfig {
 	host: string
 	port: number
+	localport: number
 }
 
 export function GetConfigFields(): SomeCompanionConfigField[] {
 	return [
 		{
-			type: 'textinput',
-			id: 'host',
-			label: 'Target IP',
-			width: 8,
-			regex: Regex.IP,
+			id: 'important-line',
+			type: 'static-text',
+			label: 'Setting up PDFOSC',
+			value: `PDFOSC module enables monitoring and controlling PDF playback.<br/>
+			It requires PDFOSC app installed and configured on show machines.<br/>
+			For setup instructions and details, visit: <a href='https://github.com/chilibytesdotcom/pdfosc'><b>PDFOSC</b></a>`,
+			width: 12,
 		},
 		{
-			type: 'number',
-			id: 'port',
-			label: 'Target Port',
+			id: 'important-line',
+			type: 'static-text',
+			label: 'Multiple PDFOSC machines',
+			value: `You'll need to set up and configure a module per PDFOSC machine.<br/>
+			Each module's ports must be configured for OSC control and feedback.<br/>
+			See <a href='https://github.com/chilibytesdotcom/pdfosc/blob/main/CONFIGURATION.md'><b>configuration</b></a> for details.`,
+			width: 12,
+		},
+		{
+			id: 'remotehost',
+			type: 'textinput',
+			label: 'Remote IP (Actions)',
+			width: 8,
+			regex: Regex.IP,
+			default: '127.0.0.1',
+		},
+		{
+			id: 'remoteport',
+			type: 'textinput',
+			label: 'Remote port',
 			width: 4,
-			min: 1,
-			max: 65535,
-			default: 8000,
+			regex: Regex.PORT,
+			default: '55550',
+		},
+		{
+			id: 'important-line',
+			type: 'static-text',
+			label: '',
+			value: `The IP address and port of your PDFOSC machine. Default: <b>127.0.0.1:55550</b><br/>
+			Values can be changed from the <b>Config OSC</b> menu in PDFOSC.<br/>
+			Port value must be the same as the <b>Listen Port</b> in the PDFOSC machine.`,
+			width: 12,
+		},
+		{
+			id: 'localport',
+			type: 'textinput',
+			label: 'Listen port (Feedbacks)',
+			width: 8,
+			regex: Regex.PORT,
+			default: '55551',
+		},
+		{
+			id: 'important-line',
+			type: 'static-text',
+			label: '',
+			value: `This port will listen for OSC messages from PDFOSC. Default: <b>55551</b><br/>
+			Values can be changed from the <b>Config OSC</b> menu in PDFOSC.<br/>
+			Port value must be the same as the <b>Output Port</b> in the PDFOSC machine.`,
+			width: 12,
 		},
 	]
 }

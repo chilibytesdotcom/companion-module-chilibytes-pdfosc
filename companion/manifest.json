@@ -1,16 +1,16 @@
 {
-	"id": "your-module-name",
-	"name": "your-module-name",
-	"shortname": "module-shortname",
-	"description": "A short one line description of your module",
-	"version": "0.0.0",
+	"id": "chilibytes-pdfosc",
+	"name": "PDFOSC",
+	"shortname": "PDFOSC",
+	"description": "PDFOSC is a PDF viewer that allows Open Sound Control (OSC) control of PDF documents.",
+	"version": "1.0.0",
 	"license": "MIT",
-	"repository": "git+https://github.com/bitfocus/companion-module-your-module-name.git",
-	"bugs": "https://github.com/bitfocus/companion-module-your-module-name/issues",
+	"repository": "git+https://github.com/chilibytesdotcom/companion-module-chilibytes-pdfosc.git",
+	"bugs": "https://github.com/chilibytesdotcom/companion-module-chilibytes-pdfosc/issues",
 	"maintainers": [
 		{
-			"name": "Your name",
-			"email": "Your email"
+			"name": "ChiliBytes",
+			"email": "maintainers@chilibytes.com"
 		}
 	],
 	"runtime": {
@@ -20,7 +20,7 @@
 		"entrypoint": "../dist/main.js"
 	},
 	"legacyIds": [],
-	"manufacturer": "Your company",
-	"products": ["Your product"],
-	"keywords": []
+	"manufacturer": "ChiliBytes",
+	"products": ["PDFOSC"],
+	"keywords": ["PDF", "OSC", "Open Sound Control"]
 }

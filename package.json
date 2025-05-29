@@ -1,6 +1,6 @@
 {
-	"name": "your-module-name",
-	"version": "0.1.0",
+	"name": "chilibytes-pdfosc",
+	"version": "1.0.0",
 	"main": "dist/main.js",
 	"type": "module",
 	"scripts": {
@@ -16,14 +16,16 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/bitfocus/companion-module-your-module-name.git"
+		"url": "git+https://github.com/bitfocus/companion-module-chilibytes-pdfosc.git"
 	},
 	"engines": {
 		"node": "^22.14",
 		"yarn": "^4"
 	},
 	"dependencies": {
-		"@companion-module/base": "~1.11.3"
+		"@companion-module/base": "~1.11.3",
+		"@types/node-osc": "^9.1.0",
+		"node-osc": "^9.1.5"
 	},
 	"devDependencies": {
 		"@companion-module/tools": "^2.3.0",
