@@ -4,19 +4,6 @@ import type { ModuleInstance } from './main.js'
 export function UpdatePresets(_instance: ModuleInstance): { [key: string]: CompanionPresetDefinition } {
 	_instance.log('debug', 'PDFOSC: Creating presets...')
 	const presets: { [key: string]: CompanionPresetDefinition } = {
-		pageActionHeader: {
-			category: 'PDF control and feedback',
-			name: 'Page control',
-			type: 'button',
-			style: {
-				text: 'Move through document',
-				size: 'auto',
-				color: combineRgb(255, 255, 255),
-				bgcolor: combineRgb(0, 0, 0),
-			},
-			steps: [],
-			feedbacks: [],
-		},
 		prev: {
 			type: 'button',
 			category: 'PDF control and feedback',
