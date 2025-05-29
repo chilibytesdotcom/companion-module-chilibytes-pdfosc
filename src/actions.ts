@@ -47,7 +47,7 @@ export function UpdateActions(self: ModuleInstance): void {
 			options: [],
 			callback: async () => sendOscMessage(self, '/pdfosc/exitpresentation'),
 		},
-		togglePresentation: {
+		togglePresentationMode: {
 			name: 'Toggle Presentation Mode',
 			options: [],
 			callback: async () => {
