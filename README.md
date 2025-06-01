@@ -72,7 +72,7 @@ For detailed documentation:
 Having issues or suggestions?
 
 - [GitHub Issues](https://github.com/chilibytesdotcom/companion-module-chilibytes-pdfosc/issues) - Report bugs or request features
-- [HELP.md](./HELP.md) - Troubleshooting guide
+- [HELP.md](./companion/HELP.md) - Troubleshooting guide
 
 ## Version History
 
