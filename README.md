@@ -20,7 +20,7 @@ With this module, you can:</br>
 ## Requirements
 
 - [Bitfocus Companion](https://bitfocus.io/companion) v3.0 or later
-- [PDFOSC PDF Viewer](https://github.com/eMMeCodes/Symposium/tree/main/PDFOSC)
+- [PDFOSC PDF Viewer](https://github.com/chilibytesdotcom/pdfosc)
 - Network connectivity between Companion and the PDFOSC machines
 
 ## Installation
@@ -65,24 +65,16 @@ The module includes a set of ready-to-use button presets for common functions.
 For detailed documentation:
 
 - [User Guide](./companion/HELP.md) - Complete module usage information
-- [PDFOSC Application](https://github.com/eMMeCodes/Symposium/tree/main/PDFOSC) - Information about the PDF viewer
+- [PDFOSC Application](https://github.com/chilibytesdotcom/pdfosc) - Information about the PDF viewer
 
 ## Support
 
 Having issues or suggestions?
 
-- [GitHub Issues](https://github.com/eMMeCodes/Symposium/issues) - Report bugs or request features
+- [GitHub Issues](https://github.com/chilibytesdotcom/companion-module-chilibytes-pdfosc/issues) - Report bugs or request features
 - [HELP.md](./HELP.md) - Troubleshooting guide
 
 ## Version History
-
-### v1.0.3
-- Added support for current/total page variables
-- Improved feedback mechanisms
-- Fixed logo and icons dimensions
-
-### v1.0.1
-- Fixed graphics for media control presets
 
 ### v1.0
 - Initial Release
