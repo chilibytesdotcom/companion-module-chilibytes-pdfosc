@@ -21,7 +21,7 @@ With this module, you can:</br>
 
 - [Bitfocus Companion](https://bitfocus.io/companion) v3.0 or later
 - [PDFOSC PDF Viewer](https://github.com/eMMeCodes/Symposium/tree/main/PDFOSC)
-- Network connectivity between Companion and the PDFOSC machine
+- Network connectivity between Companion and the PDFOSC machines
 
 ## Installation
 
