@@ -12,30 +12,13 @@
 		"url": "git+https://github.com/bitfocus/companion-module-emmecodes-pdfosc.git"
 	},
 	"dependencies": {
-<<<<<<< HEAD
-		"@companion-module/base": "~1.12.1"
-=======
 		"@companion-module/base": "~1.8.0",
 		"companion-module-utils": "^0.4.0",
 		"osc": "^2.4.3"
->>>>>>> cf25f27 (Release for application)
 	},
 	"devDependencies": {
 		"@companion-module/tools": "^1.4.1",
 		"eslint": "^8.53.0"
 	},
-<<<<<<< HEAD
-	"prettier": "@companion-module/tools/.prettierrc.json",
-	"lint-staged": {
-		"*.{css,json,md,scss}": [
-			"prettier --write"
-		],
-		"*.{ts,tsx,js,jsx}": [
-			"yarn lint:raw --fix"
-		]
-	},
-	"packageManager": "yarn@4.10.2"
-=======
 	"prettier": "@companion-module/tools/.prettierrc.json"
->>>>>>> cf25f27 (Release for application)
 }
