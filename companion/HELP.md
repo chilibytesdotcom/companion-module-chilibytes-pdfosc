@@ -82,7 +82,7 @@ For information about installing and configuring the PDFOSC application, please 
 | ----- | -------- |
 | Cannot connect to PDFOSC | &nbsp;&nbsp;&nbsp;&nbsp;Check IP address, ports and ensure PDFOSC is running |
 | Cannot connect to PDFOSC | &nbsp;&nbsp;&nbsp;&nbsp;Check network connectivity and firewall settings |
-| Actions not working | &nbsp;&nbsp;&nbsp;&nbsp;Confirm a PDF document is open in PDFOSC |
+| Actions not working | &nbsp;&nbsp;&nbsp;&nbsp;Confirm a PDF document with more than 1 page is open in PDFOSC |
 | Actions not working | &nbsp;&nbsp;&nbsp;&nbsp;Verify Remote IP and port settings match PDFOSC configuration |
 | No feedback from PDFOSC | &nbsp;&nbsp;&nbsp;&nbsp;Verify listen port setting matches PDFOSC configuration |
 | No feedback from PDFOSC | &nbsp;&nbsp;&nbsp;&nbsp;Is PDFOSC in Presentation Mode ? |
