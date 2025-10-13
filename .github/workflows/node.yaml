@@ -21,6 +21,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18.x
+      - name: Use Yarn 1.x (classic)
+        run: corepack prepare yarn@1.22.22 --activate
       - name: Prepare Environment
         run: |
           corepack enable
@@ -35,7 +37,7 @@ jobs:
           CI: false
       - name: Prepare module
         run: |
-          yarn install
+          yarn install --frozen-lockfile
         env:
           CI: true
       - name: Build and check types
