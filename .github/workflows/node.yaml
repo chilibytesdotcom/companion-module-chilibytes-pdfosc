@@ -38,6 +38,16 @@ jobs:
           yarn install
         env:
           CI: true
+      - name: Debug scripts
+        run: |
+          node -v
+          yarn -v
+          pwd
+          ls -la
+          cat package.json
+          yarn run
+        env:
+          CI: true
       - name: Build and check types
         run: |
           yarn build
