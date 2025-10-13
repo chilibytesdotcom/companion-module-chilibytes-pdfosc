@@ -1,5 +1,4 @@
 const { combineRgb } = require('@companion-module/base')
-const imgs = require('../imgs.js')
 
 module.exports = {
 	pagesActionHeader: {
@@ -58,10 +57,10 @@ module.exports = {
 			{
 				feedbackId: 'showState',
 				style: {
-					bgcolor: combineRgb(0, 200, 0),  // Verde quando attivato dal test
+					bgcolor: combineRgb(0, 200, 0), // Verde quando attivato dal test
 				},
 			},
-		]
+		],
 	},
 
 	// New presets for first and last page
@@ -105,15 +104,15 @@ module.exports = {
 			bgcolor: combineRgb(100, 0, 0),
 		},
 		steps: [
-			{ 
+			{
 				down: [
-					{ 
+					{
 						actionId: 'togglePresentation',
-						options: {}
-					}
-				], 
-				up: [] 
-			}
+						options: {},
+					},
+				],
+				up: [],
+			},
 		],
 		feedbacks: [
 			{

@@ -1,5 +1,4 @@
 const { combineRgb } = require('@companion-module/base')
-const { graphics } = require('companion-module-utils')
 
 module.exports = async function (self) {
 	self.setFeedbackDefinitions({
@@ -8,14 +7,14 @@ module.exports = async function (self) {
 			type: 'boolean',
 			label: 'Show Test Status',
 			defaultStyle: {
-				bgcolor: combineRgb(0, 200, 0),  
-				color: combineRgb(0, 0, 0),      
+				bgcolor: combineRgb(0, 200, 0),
+				color: combineRgb(0, 0, 0),
 			},
 			options: [],
-			callback: (feedback) => {
+			callback: (_feedback) => {
 				const isTestMode = self.getVariableValue('isTestMode')
 				self.log('debug', `Checking test mode status: ${isTestMode}`)
-				
+
 				if (isTestMode === undefined || isTestMode === null) {
 					self.log('debug', 'Test mode status is undefined or null')
 					return false
@@ -25,7 +24,7 @@ module.exports = async function (self) {
 				return isTestMode === 'Yes'
 			},
 		},
-		
+
 		presentationModeIndicator: {
 			name: 'Presentation Mode Indicator',
 			type: 'boolean',
@@ -33,13 +32,13 @@ module.exports = async function (self) {
 			defaultStyle: {
 				bgcolor: combineRgb(200, 0, 0),
 				color: combineRgb(255, 255, 255),
-				text: 'PRESENTING'
+				text: 'PRESENTING',
 			},
 			options: [],
-			callback: (feedback) => {
+			callback: (_feedback) => {
 				const isPresentation = self.getVariableValue('isPresentation')
 				self.log('debug', `Checking presentation mode status: ${isPresentation}`)
-				
+
 				return isPresentation === 'Yes'
 			},
 		},

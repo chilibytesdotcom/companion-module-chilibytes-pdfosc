@@ -52,16 +52,16 @@ module.exports = function (self) {
 			callback: async (_event) => {
 				// Check current presentation mode status
 				const isPresentation = self.getVariableValue('isPresentation')
-				
+
 				if (isPresentation === 'Yes') {
 					// Currently in presentation mode, so exit
 					sendOscMessage('/pdfosc/exitpresentation', [])
 					self.log('debug', 'Toggle Presentation: Exiting presentation mode')
-					
+
 					// Update variable immediately for better UI responsiveness
-					self.setVariableValues({ 
+					self.setVariableValues({
 						isPresentation: 'No',
-						state: 'Normal' 
+						state: 'Normal',
 					})
 					// Check feedbacks to update UI
 					self.checkFeedbacks('presentationModeIndicator')
@@ -70,11 +70,11 @@ module.exports = function (self) {
 					// Not in presentation mode, so enter
 					sendOscMessage('/pdfosc/presentation', [])
 					self.log('debug', 'Toggle Presentation: Entering presentation mode')
-					
+
 					// Update variable immediately for better UI responsiveness
-					self.setVariableValues({ 
+					self.setVariableValues({
 						isPresentation: 'Yes',
-						state: 'Presentation' 
+						state: 'Presentation',
 					})
 					// Check feedbacks to update UI
 					self.checkFeedbacks('presentationModeIndicator')
@@ -85,24 +85,10 @@ module.exports = function (self) {
 	})
 
 	const sendOscMessage = (path, args) => {
-
 		console.log(
 			'info',
-			`Sending OSC ${path} ${args.length > 0 ? args[0].value : ''}${args.length > 1 ? args[1].value : ''}`
+			`Sending OSC ${path} ${args.length > 0 ? args[0].value : ''}${args.length > 1 ? args[1].value : ''}`,
 		)
 		self.oscSend(self.config.remotehost, self.config.remoteport, path, args)
-	}
-
-	const sanitiseSlideNumber = (pageNumber, event) => {
-		const intPageNumber = parseInt(pageNumber)
-		if (isNaN(intPageNumber)) {
-			self.log('error', `${event.controlId}: ${event.actionId} - invalid page number "${pageNumber}"`)
-			return false
-		}
-		if (intPageNumber < 1) {
-			self.log('warn', `${event.controlId}: ${event.actionId} - page number ${intPageNumber} is < 1, setting to 1`)
-			return 1
-		}
-		return intPageNumber
 	}
 }

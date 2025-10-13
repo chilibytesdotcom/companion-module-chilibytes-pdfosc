@@ -5,6 +5,6 @@ module.exports = async function (self) {
 		{ variableId: 'total', name: 'Total pages number' },
 		{ variableId: 'state', name: 'Document view state' },
 		{ variableId: 'isPresentation', name: 'Is presentation mode active' },
-		{ variableId: 'isTestMode', name: 'Is test mode active' }
+		{ variableId: 'isTestMode', name: 'Is test mode active' },
 	])
 }

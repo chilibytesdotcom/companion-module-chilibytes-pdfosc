@@ -19,26 +19,27 @@ Configure the following settings for the module:
 
 This module provides the following actions to control your PDF documents:
 
-| Action | &nbsp;&nbsp;Description |
-| ------ | ----------- |
-| Next   | &nbsp;&nbsp;Navigate to the next page |
-| Previous | &nbsp;&nbsp;Navigate to the previous page |
-| First Page | &nbsp;&nbsp;Jump to the first page of the document |
-| Last Page | &nbsp;&nbsp;Jump to the last page of the document |
-| Enter Presentation Mode | &nbsp;&nbsp;Switch PDFOSC into fullscreen presentation mode |
-| Exit Presentation Mode | &nbsp;&nbsp;Exit from fullscreen presentation mode |
-| Toggle Presentation Mode | &nbsp;&nbsp;Switch between normal and presentation modes |
+| Action                   | &nbsp;&nbsp;Description                                     |
+| ------------------------ | ----------------------------------------------------------- |
+| Next                     | &nbsp;&nbsp;Navigate to the next page                       |
+| Previous                 | &nbsp;&nbsp;Navigate to the previous page                   |
+| First Page               | &nbsp;&nbsp;Jump to the first page of the document          |
+| Last Page                | &nbsp;&nbsp;Jump to the last page of the document           |
+| Enter Presentation Mode  | &nbsp;&nbsp;Switch PDFOSC into fullscreen presentation mode |
+| Exit Presentation Mode   | &nbsp;&nbsp;Exit from fullscreen presentation mode          |
+| Toggle Presentation Mode | &nbsp;&nbsp;Switch between normal and presentation modes    |
+
 </br>
 
 ## Feedback Functions
 
 These feedbacks indicate the state of your document:
 
-| Feedback | Description |
-| -------- | ----------- |
-| Current  | Shows the current page number |
-| Total    | Shows the total pages number of the document |
-| State    | Shows the state of Presentation Mode |
+| Feedback | Description                                             |
+| -------- | ------------------------------------------------------- |
+| Current  | Shows the current page number                           |
+| Total    | Shows the total pages number of the document            |
+| State    | Shows the state of Presentation Mode                    |
 | Test     | Shows 99/99 and Green Background in Current/Total pages |
 
 </br>
@@ -47,12 +48,12 @@ These feedbacks indicate the state of your document:
 
 The module provides these variables for use in buttons and other modules:
 
-| Variable | Description |
-| -------- | ----------- |
-| Current | Current page number|
-| Total   | Total pages number|
-| State   | State of Presentation Mode (Normal, Presentation, Exited) |
-| isPresentation | Indicates if presentation mode is active (Yes/No) |
+| Variable       | Description                                               |
+| -------------- | --------------------------------------------------------- |
+| Current        | Current page number                                       |
+| Total          | Total pages number                                        |
+| State          | State of Presentation Mode (Normal, Presentation, Exited) |
+| isPresentation | Indicates if presentation mode is active (Yes/No)         |
 
 </br>
 
@@ -78,14 +79,15 @@ For information about installing and configuring the PDFOSC application, please 
 
 ## Troubleshooting
 
-| Issue | &nbsp;&nbsp;&nbsp;&nbsp;Solution |
-| ----- | -------- |
-| Cannot connect to PDFOSC | &nbsp;&nbsp;&nbsp;&nbsp;Check IP address, ports and ensure PDFOSC is running |
-| Cannot connect to PDFOSC | &nbsp;&nbsp;&nbsp;&nbsp;Check network connectivity and firewall settings |
-| Actions not working | &nbsp;&nbsp;&nbsp;&nbsp;Confirm a PDF document is open in PDFOSC |
-| Actions not working | &nbsp;&nbsp;&nbsp;&nbsp;Verify Remote IP and port settings match PDFOSC configuration |
-| No feedback from PDFOSC | &nbsp;&nbsp;&nbsp;&nbsp;Verify listen port setting matches PDFOSC configuration |
-| No feedback from PDFOSC | &nbsp;&nbsp;&nbsp;&nbsp;Is PDFOSC in Presentation Mode ? |
+| Issue                    | &nbsp;&nbsp;&nbsp;&nbsp;Solution                                                      |
+| ------------------------ | ------------------------------------------------------------------------------------- |
+| Cannot connect to PDFOSC | &nbsp;&nbsp;&nbsp;&nbsp;Check IP address, ports and ensure PDFOSC is running          |
+| Cannot connect to PDFOSC | &nbsp;&nbsp;&nbsp;&nbsp;Check network connectivity and firewall settings              |
+| Actions not working      | &nbsp;&nbsp;&nbsp;&nbsp;Confirm a PDF document is open in PDFOSC                      |
+| Actions not working      | &nbsp;&nbsp;&nbsp;&nbsp;Verify Remote IP and port settings match PDFOSC configuration |
+| No feedback from PDFOSC  | &nbsp;&nbsp;&nbsp;&nbsp;Verify listen port setting matches PDFOSC configuration       |
+| No feedback from PDFOSC  | &nbsp;&nbsp;&nbsp;&nbsp;Is PDFOSC in Presentation Mode ?                              |
+
 </br>
 
 ## Support

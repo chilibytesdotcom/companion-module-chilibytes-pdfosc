@@ -1,6 +1,5 @@
 const osc = require('osc')
 const { InstanceStatus } = require('@companion-module/base')
-const textHelper = require('./text-helper')
 
 const oscListener = {
 	close: async function () {
@@ -19,7 +18,7 @@ const oscListener = {
 		this.udpPort.on('ready', () => {
 			self.log('info', `Listening for PDFOSC messages on port ${self.config.localport}`)
 			self.updateStatus(InstanceStatus.Ok, 'Connected.')
-        })
+		})
 
 		this.udpPort.on('message', (oscMsg) => {
 			const path = oscMsg.address
@@ -34,17 +33,17 @@ const oscListener = {
 						const value = parseInt(args[0].value)
 						const displayValue = value === 0 ? '-' : value
 						self.setVariableValues({
-							'current': displayValue
+							current: displayValue,
 						})
 					}
 					break
-					
+
 				case '/pdfosc/total':
 					if (args && args.length > 0) {
 						const value = parseInt(args[0].value)
 						const displayValue = value === 0 ? '-' : value
 						self.setVariableValues({
-							'total': displayValue
+							total: displayValue,
 						})
 					}
 					break
@@ -53,18 +52,16 @@ const oscListener = {
 					if (args && args.length > 0) {
 						const state = args[0].value
 						self.log('debug', `Received state: ${state}`)
-						
+
 						// Determine if this is likely a test message
 						// We consider it a test if it's state 3 AND current or total pages are 99
 						const currentPage = self.getVariableValue('current')
 						const totalPages = self.getVariableValue('total')
-						const isTestMessage = 
-							parseInt(state) === 3 && 
-							(currentPage === 99 || totalPages === 99);
-						
+						const isTestMessage = parseInt(state) === 3 && (currentPage === 99 || totalPages === 99)
+
 						// Convert numeric state to descriptive text
 						let stateText = 'Unknown'
-						switch(parseInt(state)) {
+						switch (parseInt(state)) {
 							case 0:
 								stateText = 'Exited'
 								break
@@ -78,22 +75,22 @@ const oscListener = {
 								stateText = `State ${state}`
 								break
 						}
-						
+
 						// Set different variables based on whether this is a test message or real state change
 						if (isTestMessage) {
 							self.log('debug', 'Detected test message pattern - activating test mode indicators only')
-							self.setVariableValues({ 
+							self.setVariableValues({
 								state: stateText,
-								isTestMode: 'Yes'
+								isTestMode: 'Yes',
 							})
 							// Only update the test indicator
 							self.checkFeedbacks('showState')
 						} else {
 							self.log('debug', 'Normal state change detected')
-							self.setVariableValues({ 
+							self.setVariableValues({
 								state: stateText,
 								isPresentation: parseInt(state) === 3 ? 'Yes' : 'No',
-								isTestMode: 'No'
+								isTestMode: 'No',
 							})
 							// Update both feedback types
 							self.checkFeedbacks('showState')
@@ -120,12 +117,12 @@ const oscListener = {
 		}
 
 		self.log('info', `OSC message received: ${oscMsg.address} ${argLog || ''}`)
-		
+
 		const msgParts = oscMsg.address.split('/')
 		if (msgParts[1] != 'pdfosc') return
-		
+
 		// Handle any other specialized OSC messages here
-	}
+	},
 }
 
 module.exports = oscListener
