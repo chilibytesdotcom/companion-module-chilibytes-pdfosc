@@ -3,6 +3,7 @@ package-lock.json
 /pkg
 /*.tgz
 /dist
+.DS_Store
 *.log
 DEBUG-*
 /.yarn

@@ -3,7 +3,7 @@
 	"name": "PDFOSC",
 	"shortname": "PDFOSC",
 	"description": "PDFOSC is a PDF viewer that allows Open Sound Control (OSC) control of PDF documents.",
-	"version": "1.0.3",
+	"version": "1.0.0",
 	"license": "MIT",
 	"repository": "git+https://github.com/chilibytesdotcom/companion-module-chilibytes-pdfosc.git",
 	"bugs": "https://github.com/chilibytesdotcom/companion-module-chilibytes-pdfosc/issues",
