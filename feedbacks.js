@@ -1,32 +1,46 @@
 const { combineRgb } = require('@companion-module/base')
+const { graphics } = require('companion-module-utils')
 
 module.exports = async function (self) {
 	self.setFeedbackDefinitions({
-		ChannelState: {
-			name: 'Example Feedback',
+		showState: {
+			name: 'Test Mode Indicator',
 			type: 'boolean',
-			label: 'Channel State',
+			label: 'Show Test Status',
 			defaultStyle: {
-				bgcolor: combineRgb(255, 0, 0),
-				color: combineRgb(0, 0, 0),
+				bgcolor: combineRgb(0, 200, 0),  
+				color: combineRgb(0, 0, 0),      
 			},
-			options: [
-				{
-					id: 'num',
-					type: 'number',
-					label: 'Test',
-					default: 5,
-					min: 0,
-					max: 10,
-				},
-			],
+			options: [],
 			callback: (feedback) => {
-				console.log('Hello world!', feedback.options.num)
-				if (feedback.options.num > 5) {
-					return true
-				} else {
+				const isTestMode = self.getVariableValue('isTestMode')
+				self.log('debug', `Checking test mode status: ${isTestMode}`)
+				
+				if (isTestMode === undefined || isTestMode === null) {
+					self.log('debug', 'Test mode status is undefined or null')
 					return false
 				}
+
+				// Return true if in test mode
+				return isTestMode === 'Yes'
+			},
+		},
+		
+		presentationModeIndicator: {
+			name: 'Presentation Mode Indicator',
+			type: 'boolean',
+			label: 'Presentation Active',
+			defaultStyle: {
+				bgcolor: combineRgb(200, 0, 0),
+				color: combineRgb(255, 255, 255),
+				text: 'PRESENTING'
+			},
+			options: [],
+			callback: (feedback) => {
+				const isPresentation = self.getVariableValue('isPresentation')
+				self.log('debug', `Checking presentation mode status: ${isPresentation}`)
+				
+				return isPresentation === 'Yes'
 			},
 		},
 	})
