@@ -72,7 +72,7 @@ This module requires the PDFOSC PDF viewer application to be installed and runni
 1. PDFOSC is properly installed and running
 2. Network connectivity exists between Companion and the PDFOSC machine
 3. The ports configured in this module match those in PDFOSC
-4. Pressing Test button in PSFOSC Config Page, will send 99/99 and Green background to "Current/Total pages" button
+4. Pressing Test button in PDFOSC Config Page, will send 99/99 and Green background to "Current/Total pages" button
 5. <b>OSC feedbacks will be enabled only when Presentation Mode is active, Action and Test functions are always enable.</b>
 
 For information about installing and configuring the PDFOSC application, please visit: [PDFOSC GitHub Repository](https://github.com/chilibytesdotcom/pdfosc)
