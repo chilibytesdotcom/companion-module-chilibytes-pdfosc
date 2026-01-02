@@ -87,7 +87,7 @@ module.exports = function (self) {
 	const sendOscMessage = (path, args) => {
 		self.log(
 			'debug',
-			`Sending OSC ${path} ${args.length > 0 ? args[0].value : ''}${args.length > 1 ? args[1].value : ''}`
+			`Sending OSC ${path} ${args.length > 0 ? args[0].value : ''}${args.length > 1 ? args[1].value : ''}`,
 		)
 		self.oscSend(self.config.remotehost, self.config.remoteport, path, args)
 	}

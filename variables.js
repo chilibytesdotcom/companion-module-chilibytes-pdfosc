@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 module.exports = async function (self) {
 	self.setVariableDefinitions([
 		{ variableId: 'current', name: 'Current page number' },
