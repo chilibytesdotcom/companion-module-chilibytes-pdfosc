@@ -2,7 +2,7 @@ const { Regex } = require('@companion-module/base')
 
 const configFields = [
 	{
-		id: 'important-line',
+		id: 'info-setup',
 		type: 'static-text',
 		label: 'Setting up PDFOSC',
 		value: `PDFOSC module enables monitoring and controlling PDF playback.<br/>
@@ -11,7 +11,7 @@ const configFields = [
 		width: 12,
 	},
 	{
-		id: 'important-line',
+		id: 'info-multiple-machines',
 		type: 'static-text',
 		label: 'Multiple PDFOSC machines',
 		value: `You'll need to set up and configure a module per PDFOSC machine.<br/>
@@ -36,7 +36,7 @@ const configFields = [
 		default: 55550,
 	},
 	{
-		id: 'important-line',
+		id: 'info-remote',
 		type: 'static-text',
 		label: '',
 		value: `The IP address and port of your PDFOSC machine. Default: <b>127.0.0.1:55550</b><br/>
@@ -53,7 +53,7 @@ const configFields = [
 		default: 55551,
 	},
 	{
-		id: 'important-line',
+		id: 'info-local',
 		type: 'static-text',
 		label: '',
 		value: `This port will listen for OSC messages from PDFOSC. Default: <b>55551</b><br/>
