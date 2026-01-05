@@ -13,7 +13,7 @@ module.exports = {
 		name: `Previous page`,
 		style: {
 			text: `🢔`,
-			size: '33',
+			size: 'auto',
 			color: combineRgb(255, 255, 255),
 			bgcolor: combineRgb(0, 0, 0),
 		},
@@ -27,7 +27,7 @@ module.exports = {
 		name: `Next page`,
 		style: {
 			text: '🢖',
-			size: '33',
+			size: 'auto',
 			color: combineRgb(255, 255, 255),
 			bgcolor: combineRgb(0, 0, 0),
 		},
@@ -41,7 +41,7 @@ module.exports = {
 		name: `Current/Total pages`,
 		style: {
 			text: 'Page\n$(PDFOSC:current)/$(PDFOSC:total)',
-			size: '24',
+			size: 'auto',
 			alignment: 'center:top',
 			color: combineRgb(255, 255, 255),
 			bgcolor: combineRgb(0, 0, 0),
@@ -57,7 +57,7 @@ module.exports = {
 			{
 				feedbackId: 'showState',
 				style: {
-					bgcolor: combineRgb(0, 200, 0), // Verde quando attivato dal test
+					bgcolor: combineRgb(0, 200, 0), // Green if from test
 				},
 			},
 		],
@@ -70,7 +70,7 @@ module.exports = {
 		name: `First page`,
 		style: {
 			text: `FIRST\nPAGE`,
-			size: '24',
+			size: 'auto',
 			color: combineRgb(255, 255, 255),
 			bgcolor: combineRgb(0, 0, 100),
 		},
@@ -84,7 +84,7 @@ module.exports = {
 		name: `Last page`,
 		style: {
 			text: `LAST\nPAGE`,
-			size: '24',
+			size: 'auto',
 			color: combineRgb(255, 255, 255),
 			bgcolor: combineRgb(0, 0, 100),
 		},
