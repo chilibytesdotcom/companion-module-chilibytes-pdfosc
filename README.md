@@ -19,7 +19,7 @@ With this module, you can:</br>
 
 ## Requirements
 
-- [Bitfocus Companion](https://bitfocus.io/companion) v3.0 or later
+- [Bitfocus Companion](https://bitfocus.io/companion) v4.2 or later
 - [PDFOSC PDF Viewer](https://github.com/chilibytesdotcom/pdfosc)
 - Network connectivity between Companion and the PDFOSC machines
 

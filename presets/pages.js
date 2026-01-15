@@ -12,7 +12,7 @@ module.exports = {
 		category: 'PDF control and feedback',
 		name: `Previous page`,
 		style: {
-			text: `🢔`,
+			text: `PREV`,
 			size: 'auto',
 			color: combineRgb(255, 255, 255),
 			bgcolor: combineRgb(0, 0, 0),
@@ -26,7 +26,7 @@ module.exports = {
 		category: 'PDF control and feedback',
 		name: `Next page`,
 		style: {
-			text: '🢖',
+			text: 'NEXT',
 			size: 'auto',
 			color: combineRgb(255, 255, 255),
 			bgcolor: combineRgb(0, 0, 0),
@@ -98,7 +98,7 @@ module.exports = {
 		category: 'PDF control and feedback',
 		name: `Toggle presentation mode`,
 		style: {
-			text: `▶️\nP. MODE`,
+			text: `START\nPRESENT`,
 			size: 'auto',
 			color: combineRgb(255, 255, 255),
 			bgcolor: combineRgb(100, 0, 0),
@@ -118,7 +118,7 @@ module.exports = {
 			{
 				feedbackId: 'presentationModeIndicator',
 				style: {
-					text: '⏹️\nP. MODE',
+					text: 'STOP\nPRESENT',
 					bgcolor: combineRgb(200, 0, 0),
 				},
 			},
