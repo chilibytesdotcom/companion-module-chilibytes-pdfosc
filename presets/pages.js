@@ -57,13 +57,12 @@ module.exports = {
 			{
 				feedbackId: 'showState',
 				style: {
-					bgcolor: combineRgb(0, 200, 0), // Green if from test
+					bgcolor: combineRgb(0, 200, 0),
 				},
 			},
 		],
 	},
 
-	// New presets for first and last page
 	firstPage: {
 		type: 'button',
 		category: 'PDF control and feedback',
@@ -92,7 +91,6 @@ module.exports = {
 		feedbacks: [],
 	},
 
-	// Combined start/stop presentation button
 	presentationToggle: {
 		type: 'button',
 		category: 'PDF control and feedback',

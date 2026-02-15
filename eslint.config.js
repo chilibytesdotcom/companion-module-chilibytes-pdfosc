@@ -4,6 +4,9 @@ const prettierConfig = require('eslint-config-prettier')
 const globals = require('globals')
 
 module.exports = [
+	{
+		ignores: ['pkg/**'],
+	},
 	js.configs.recommended,
 	prettierConfig,
 	{

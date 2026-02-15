@@ -9,13 +9,8 @@ const configFields = require('./config')
 const variableDefaults = require('./variable-defaults')
 
 class ModuleInstance extends InstanceBase {
-	constructor(internal) {
-		super(internal)
-	}
-
-	async init(config) {
+	init(config) {
 		this.config = config
-		this.files = []
 
 		if (!this.validateConfig()) {
 			return
@@ -25,19 +20,13 @@ class ModuleInstance extends InstanceBase {
 		this.log('info', `Sending OSC actions to ${this.config.remotehost}:${this.config.remoteport}`)
 		this.updateStatus(InstanceStatus.Connecting, `Connecting to port ${this.config.localport}...`)
 
-		this.updateActions() // export actions
-		this.updateFeedbacks() // export feedbacks
-		this.updateVariableDefinitions() // export variable definitions
-		this.updatePresetDefinitions() // export preset definitions
+		this.updateActions()
+		this.updateFeedbacks()
+		this.updateVariableDefinitions()
+		this.updatePresetDefinitions()
 
-		try {
-			await oscListener.connect(this)
-		} catch (error) {
-			this.log('error', `Failed to start OSC listener: ${error.message}`)
-			this.updateStatus(InstanceStatus.ConnectionFailure, error.message)
-		}
+		oscListener.connect(this)
 
-		//set some defaults for the variables
 		this.setVariableValues(variableDefaults)
 	}
 
@@ -65,16 +54,11 @@ class ModuleInstance extends InstanceBase {
 		return true
 	}
 
-	// When module gets deleted
-	async destroy() {
-		try {
-			await oscListener.close()
-		} catch (error) {
-			this.log('debug', `Error closing OSC listener: ${error.message}`)
-		}
+	destroy() {
+		oscListener.close()
 	}
 
-	async configUpdated(config) {
+	configUpdated(config) {
 		this.config = config
 		this.log('info', 'Config has changed, updating...')
 
@@ -85,21 +69,9 @@ class ModuleInstance extends InstanceBase {
 		this.log('info', `Now sending OSC actions to ${this.config.remotehost}:${this.config.remoteport}`)
 		this.updateStatus(InstanceStatus.Connecting, 'Reconnecting...')
 
-		try {
-			await oscListener.close()
-		} catch (error) {
-			this.log('debug', `Error closing OSC listener: ${error.message}`)
-		}
-
-		try {
-			await oscListener.connect(this)
-		} catch (error) {
-			this.log('error', `Failed to reconnect OSC listener: ${error.message}`)
-			this.updateStatus(InstanceStatus.ConnectionFailure, error.message)
-		}
+		oscListener.connect(this)
 	}
 
-	// Return config fields for web config
 	getConfigFields() {
 		return configFields
 	}

@@ -4,10 +4,10 @@ const { InstanceStatus } = require('@companion-module/base')
 const oscListener = {
 	udpPort: null,
 
-	close: async function () {
+	close: function () {
 		if (this.udpPort) {
 			try {
-				await this.udpPort.close()
+				this.udpPort.close()
 			} catch {
 				// Ignore errors during close - port may already be closed
 			}
@@ -15,50 +15,38 @@ const oscListener = {
 		}
 	},
 
-	connect: async function (self) {
+	connect: function (self) {
 		// Close any existing connection first
-		await this.close()
+		this.close()
 
-		return new Promise((resolve, reject) => {
-			try {
-				this.udpPort = new osc.UDPPort({
-					localAddress: '0.0.0.0',
-					localPort: self.config.localport,
-					metadata: true,
-				})
+		this.udpPort = new osc.UDPPort({
+			localAddress: '0.0.0.0',
+			localPort: self.config.localport,
+			metadata: true,
+		})
 
-				this.udpPort.on('ready', () => {
-					self.log('info', `Listening for PDFOSC messages on port ${self.config.localport}`)
-					self.updateStatus(InstanceStatus.Ok, 'Connected.')
-					resolve()
-				})
+		this.udpPort.on('ready', () => {
+			self.log('info', `Listening for PDFOSC messages on port ${self.config.localport}`)
+			self.updateStatus(InstanceStatus.Ok, 'Connected.')
+		})
 
-				this.udpPort.on('error', (error) => {
-					self.log('error', `OSC listener error: ${error.message}`)
+		this.udpPort.on('error', (error) => {
+			self.log('error', `OSC listener error: ${error.message}`)
 
-					if (error.code === 'EADDRINUSE') {
-						self.updateStatus(InstanceStatus.ConnectionFailure, `Port ${self.config.localport} is already in use`)
-					} else if (error.code === 'EACCES') {
-						self.updateStatus(InstanceStatus.ConnectionFailure, `Permission denied for port ${self.config.localport}`)
-					} else {
-						self.updateStatus(InstanceStatus.ConnectionFailure, error.message)
-					}
-
-					// Reject only if we haven't resolved yet (error during startup)
-					reject(error)
-				})
-
-				this.udpPort.on('message', (oscMsg) => {
-					this.handleMessage(oscMsg, self)
-				})
-
-				this.udpPort.open()
-			} catch (error) {
-				self.log('error', `Failed to create OSC listener: ${error.message}`)
+			if (error.code === 'EADDRINUSE') {
+				self.updateStatus(InstanceStatus.ConnectionFailure, `Port ${self.config.localport} is already in use`)
+			} else if (error.code === 'EACCES') {
+				self.updateStatus(InstanceStatus.ConnectionFailure, `Permission denied for port ${self.config.localport}`)
+			} else {
 				self.updateStatus(InstanceStatus.ConnectionFailure, error.message)
-				reject(error)
 			}
 		})
+
+		this.udpPort.on('message', (oscMsg) => {
+			this.handleMessage(oscMsg, self)
+		})
+
+		this.udpPort.open()
 	},
 
 	handleMessage: function (oscMsg, self) {

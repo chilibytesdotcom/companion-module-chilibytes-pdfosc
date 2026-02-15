@@ -1,4 +1,4 @@
-module.exports = async function (self) {
+module.exports = function (self) {
 	self.setVariableDefinitions([
 		{ variableId: 'current', name: 'Current page number' },
 		{ variableId: 'total', name: 'Total pages number' },
